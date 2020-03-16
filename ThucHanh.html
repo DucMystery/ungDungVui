@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực hành</title>
+</head>
+<body>
+<h1>Type anything slowly</h1>
+<form name="f">
+    <textarea onkeydown="changeInput()" cols="40" rows="10" name="hienThi"></textarea>
+</form>
+</body>
+<script>
+    let array=new Array();
+    let n="";
+    array[1]="T";array[2]="H";array[3]="Í";array[4]="C";array[5]="H";array[6]=" ";
+    array[7]="G";array[8]="Ì";array[9]=" ";array[10]="!";
+    function changeInput() {
+        let t= document.f.hienThi.value;
+         let w=t.length;
+        if(w>0){
+            for (let i=1;i<=w;i++){
+               n+=array[i];
+               if (i===11){
+                   document.f.hienThi.value="";
+                   n="";
+               }
+            }
+        }
+        document.f.hienThi.value=n;
+        n="";
+        setTimeout(changeInput,1);
+    }
+
+</script>
+</html>
